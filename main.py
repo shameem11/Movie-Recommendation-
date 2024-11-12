@@ -17,12 +17,33 @@ selected_movie = st.selectbox("type or select movie",movie_list)
 
 
 
+import requests
+
+url = "https://api.themoviedb.org/3/movie/movie_id?language=en-US"
+
+headers = {
+    "accept": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZTE3ZjhiZmUyYTEyNTEzNDIzZTk4OGZlZDYyMjNmOSIsIm5iZiI6MTczMTQyNzEzNy4xNjA2NzQsInN1YiI6IjY3MmQwMWQ3Yzc0ODcxOGJmMDczOTNhYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.sAAaONMMYwocOCH7sjXvcJx5NOgZcNRHf5DpQNwoyAI"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+
+
+
+
 
 import requests
 
 def fetch(movie_id):
-    url = 'https://api.themoviedb.org/3/movie/{}?api_key=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZTE3ZjhiZmUyYTEyNTEzNDIzZTk4OGZlZDYyMjNmOSIsIm5iZiI6MTczMTIzNzMxNC4wOTQzNzQ0LCJzdWIiOiI2NzJkMDFkN2M3NDg3MThiZjA3MzkzYWEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.H1dfZsuapX7xAVxVkRZW1ezxdXO_bMNfVvrkn-MrZR&language=en-US&page=1'.format(movie_id)
-    headers = {"accept": "application/json"}
+    url = "https://api.themoviedb.org/3/movie/{}?language=en-US".format(movie_id)
+    headers = {
+    "accept": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZTE3ZjhiZmUyYTEyNTEzNDIzZTk4OGZlZDYyMjNmOSIsIm5iZiI6MTczMTQyNzEzNy4xNjA2NzQsInN1YiI6IjY3MmQwMWQ3Yzc0ODcxOGJmMDczOTNhYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.sAAaONMMYwocOCH7sjXvcJx5NOgZcNRHf5DpQNwoyAI"
+     } 
     
     try:
         response = requests.get(url, headers=headers)
