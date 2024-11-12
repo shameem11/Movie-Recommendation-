@@ -83,7 +83,7 @@ def recommend(movie_title):
 
 
 
-st.header('movie Recommendation System')
+st.header('movie Recommendation')
 
 if st.button('show recommendation'):
     recommended_movie_name,recommended_movie_postter = recommend(selected_movie)
